@@ -56,7 +56,6 @@ class App extends React.Component<Props, State> {
       data: [],
       selected: "",
       input: "10",
-      nominal: numeral(10).format("0,0.00"),
       btnDisable: true,
       count: 0
     };
@@ -88,8 +87,7 @@ class App extends React.Component<Props, State> {
 
   handleInputChange(value: string) {
     this.setState({
-      input: value,
-      nominal: numeral(value).format("0,0.00")
+      input: value
     });
   }
 
@@ -130,13 +128,12 @@ class App extends React.Component<Props, State> {
 
   render() {
     const { feed, date, isLoading, classes } = this.props;
-    const { data, selected, input, nominal, btnDisable } = this.state;
+    const { data, selected, input, btnDisable } = this.state;
 
     return (
       <div className={classes.deviceHeight}>
         <Header
           input={input}
-          nominal={nominal}
           onFocus={e => this.handleInputFocus(e.target.value)}
           onBlur={e => this.handleInputBlur(e.target.value)}
           onChange={e => this.handleInputChange(e.target.value)}

@@ -4,7 +4,6 @@ import { withStyles } from "@material-ui/core/styles";
 
 type Props = {
   input: number,
-  nominal: string,
   onFocus: Function,
   onBlur: Function,
   onChange: Function,
@@ -33,7 +32,7 @@ const styles = theme => ({
 });
 
 const InputNominal = (props: Props) => {
-  const { input, nominal, onFocus, onBlur, onChange, classes } = props;
+  const { input, onFocus, onBlur, onChange, classes } = props;
   return (
     <InputBase
       placeholder="Enter Nominal.."
