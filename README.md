@@ -24,6 +24,10 @@ https://api.exchangeratesapi.io/latest
 
 You can configure permitted currency from `./src/currency.js` files
 
+### To-Do
+
+Testing need more improvement!
+
 ### License
 
 Released under the MIT License. Check `LICENSE` file for more info.
