@@ -3,7 +3,8 @@ import InputBase from "@material-ui/core/InputBase";
 import { withStyles } from "@material-ui/core/styles";
 
 type Props = {
-  nominal: number,
+  input: number,
+  nominal: string,
   onChange: Function,
   classes: Object
 };
@@ -30,12 +31,12 @@ const styles = theme => ({
 });
 
 const InputNominal = (props: Props) => {
-  const { nominal, onChange, classes } = props;
+  const { input, nominal, onChange, classes } = props;
   return (
     <InputBase
       placeholder="Enter Nominal.."
-      value={nominal}
-      onChange={e => onChange(e.target.value)}
+      value={input}
+      onChange={onChange}
       inputProps={{ "aria-label": "input-rate" }}
       name="input-rate"
       id="input-rate"

@@ -2,11 +2,11 @@
 import React from "react";
 import compose from "recompose/compose";
 import { connect } from "react-redux";
-
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import lightGreen from "@material-ui/core/colors/lightGreen";
 import { withStyles } from "@material-ui/core/styles";
+import numeral from "numeral";
 
 import currency from "../currency";
 import fetchFeed from "../actions/feed";
@@ -23,6 +23,11 @@ type Props = {
   classes: Object
 };
 
+type State = {
+  nominal: number,
+  handleChange: Function
+};
+
 const styles = () => ({
   root: {
     flexGrow: 1,
@@ -34,7 +39,16 @@ const styles = () => ({
   }
 });
 
-class App extends React.Component<Props> {
+class App extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      input: 10,
+      nominal: numeral(10).format("0,0.00")
+    };
+  }
+
   componentDidMount() {
     const element = document.getElementById("initLoader");
     window.onload = () => {
@@ -42,15 +56,30 @@ class App extends React.Component<Props> {
         element.remove();
       }
     };
+
+    // Fetch rates data
     this.props.fetchFeed();
+  }
+
+  handleChange(value) {
+    console.log(value);
+    this.setState({
+      input: value,
+      nominal: numeral(value).format("0,0.00")
+    });
   }
 
   render() {
     const { feed, date, isLoading, classes } = this.props;
+    const { input, nominal } = this.state;
 
     return (
       <div>
-        <Header />
+        <Header
+          input={input}
+          nominal={nominal}
+          onChange={e => this.handleChange(e.target.value)}
+        />
         <div className={classes.root}>
           <Grid container>
             <Grid item xs>
