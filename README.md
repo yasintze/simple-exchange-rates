@@ -6,7 +6,9 @@ An example of a simple exchange rates web apps built in React Redux based on Cre
 
 Live Preview : https://simple-exchange-rates.netlify.com/
 
-<img src="assets/ss-audit-score.png" />
+<img src="assets/ss-audit-score" />
+
+Chrome Lighthouse performance test in February 16, 2018
 
 ### Access Locally
 
