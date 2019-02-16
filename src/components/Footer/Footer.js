@@ -9,7 +9,7 @@ type Props = {
 
 const Footer = (props: Props) => {
   const { date } = props;
-  const lastUpdatedInfo = `Last updated ${date}`;
+  const lastUpdatedInfo = `Rates last updated ${date}`;
 
   return (
     <Grid container>

@@ -50,7 +50,6 @@ const baseCurrency = "USD";
 const Header = (props: Props) => {
   const { input, nominal, onChange, classes } = props;
   const baseCurrencyLabel = `${baseCurrency} - ${currency[baseCurrency]}`;
-  console.log("Header", input);
 
   return (
     <AppBar position="fixed">

@@ -8,12 +8,13 @@ import lightGreen from "@material-ui/core/colors/lightGreen";
 import { withStyles } from "@material-ui/core/styles";
 import numeral from "numeral";
 
-import currency from "../currency";
+// import currency from "../currency";
 import fetchFeed from "../actions/feed";
 import Header from "./Header";
 import Footer from "./Footer";
 import Loader from "./Loader";
 import Currency from "./Currency";
+import AddCurrency from "./AddCurrency";
 
 type Props = {
   feed: Array<Object>,
@@ -24,17 +25,22 @@ type Props = {
 };
 
 type State = {
+  data: Array<Object>,
   nominal: number,
   handleChange: Function
 };
 
 const styles = () => ({
+  deviceHeight: {
+    minHeight: "100vh",
+    backgroundColor: lightGreen[100]
+  },
   root: {
     flexGrow: 1,
     paddingTop: "7.5vh",
     backgroundColor: lightGreen[100]
   },
-  greyPaper: {
+  lightGreenPaper: {
     backgroundColor: lightGreen[100]
   }
 });
@@ -44,6 +50,8 @@ class App extends React.Component<Props, State> {
     super(props);
 
     this.state = {
+      data: [],
+      selected: "",
       input: 10,
       nominal: numeral(10).format("0,0.00")
     };
@@ -61,40 +69,56 @@ class App extends React.Component<Props, State> {
     this.props.fetchFeed();
   }
 
-  handleChange(value) {
-    console.log(value);
+  handleInputChange(value) {
     this.setState({
       input: value,
       nominal: numeral(value).format("0,0.00")
     });
   }
 
+  handleSelectChange(value) {
+    this.setState({
+      selected: value
+    });
+  }
+
+  handleClickButton(e) {
+    e.preventDefault();
+    const { selected } = this.state;
+    console.log(selected);
+  }
+
   render() {
     const { feed, date, isLoading, classes } = this.props;
-    const { input, nominal } = this.state;
+    const { data, selected, input, nominal } = this.state;
 
     return (
-      <div>
+      <div className={classes.deviceHeight}>
         <Header
           input={input}
           nominal={nominal}
-          onChange={e => this.handleChange(e.target.value)}
+          onChange={e => this.handleInputChange(e.target.value)}
         />
         <div className={classes.root}>
           <Grid container>
             <Grid item xs>
-              <Paper className={classes.greyPaper}>
+              <Paper className={classes.lightGreenPaper}>
                 {isLoading && <Loader />}
-                {feed &&
-                  Object.keys(feed).map(rate => (
-                    <Currency
-                      key={rate}
-                      header={rate}
-                      meta={feed[rate]}
-                      description={currency[rate]}
-                    />
-                  ))}
+                {data.map(item => (
+                  <Currency
+                    key={item.name}
+                    header={item.name}
+                    meta={item.description}
+                    description={item.description}
+                  />
+                ))}
               </Paper>
+              <AddCurrency
+                data={feed}
+                selected={selected}
+                onChange={e => this.handleSelectChange(e.target.value)}
+                onClick={e => this.handleClickButton(e)}
+              />
             </Grid>
           </Grid>
           <Footer date={date} />
