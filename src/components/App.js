@@ -27,7 +27,7 @@ type Props = {
 type State = {
   data: Array<Object>,
   selected: string,
-  input: number,
+  input: string,
   nominal: number,
   btnDisable: boolean,
   count: number
@@ -55,7 +55,7 @@ class App extends React.Component<Props, State> {
     this.state = {
       data: [],
       selected: "",
-      input: 10,
+      input: "10",
       nominal: numeral(10).format("0,0.00"),
       btnDisable: true,
       count: 0
@@ -74,7 +74,19 @@ class App extends React.Component<Props, State> {
     this.props.fetchFeed();
   }
 
-  handleInputChange(value: number) {
+  handleInputFocus(value: string) {
+    this.setState({
+      input: numeral(value).value()
+    });
+  }
+
+  handleInputBlur(value: string) {
+    this.setState({
+      input: numeral(value).format("0,0.00")
+    });
+  }
+
+  handleInputChange(value: string) {
     this.setState({
       input: value,
       nominal: numeral(value).format("0,0.00")
@@ -125,6 +137,8 @@ class App extends React.Component<Props, State> {
         <Header
           input={input}
           nominal={nominal}
+          onFocus={e => this.handleInputFocus(e.target.value)}
+          onBlur={e => this.handleInputBlur(e.target.value)}
           onChange={e => this.handleInputChange(e.target.value)}
         />
         <div className={classes.root}>

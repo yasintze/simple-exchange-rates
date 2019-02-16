@@ -5,6 +5,8 @@ import { withStyles } from "@material-ui/core/styles";
 type Props = {
   input: number,
   nominal: string,
+  onFocus: Function,
+  onBlur: Function,
   onChange: Function,
   classes: Object
 };
@@ -31,13 +33,18 @@ const styles = theme => ({
 });
 
 const InputNominal = (props: Props) => {
-  const { input, nominal, onChange, classes } = props;
+  const { input, nominal, onFocus, onBlur, onChange, classes } = props;
   return (
     <InputBase
       placeholder="Enter Nominal.."
       value={input}
       onChange={onChange}
-      inputProps={{ "aria-label": "input-rate" }}
+      autoFocus
+      inputProps={{
+        onFocus,
+        onBlur,
+        "aria-label": "input-rate"
+      }}
       name="input-rate"
       id="input-rate"
       classes={{

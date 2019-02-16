@@ -12,6 +12,8 @@ import InputNominal from "../InputNominal";
 type Props = {
   input: number,
   nominal: string,
+  onFocus: Function,
+  onBlur: Function,
   onChange: Function,
   classes: Object
 };
@@ -48,7 +50,7 @@ const styles = theme => ({
 const baseCurrency = "USD";
 
 const Header = (props: Props) => {
-  const { input, nominal, onChange, classes } = props;
+  const { input, nominal, onFocus, onBlur, onChange, classes } = props;
   const baseCurrencyLabel = `${baseCurrency} - ${currency[baseCurrency]}`;
 
   return (
@@ -62,7 +64,13 @@ const Header = (props: Props) => {
           <div className={classes.searchIcon}>
             <AttachMoneyIcon />
           </div>
-          <InputNominal input={input} nominal={nominal} onChange={onChange} />
+          <InputNominal
+            input={input}
+            nominal={nominal}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            onChange={onChange}
+          />
         </div>
       </Toolbar>
     </AppBar>
