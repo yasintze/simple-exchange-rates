@@ -8,7 +8,7 @@ import lightGreen from "@material-ui/core/colors/lightGreen";
 import { withStyles } from "@material-ui/core/styles";
 import numeral from "numeral";
 
-// import currency from "../currency";
+import currency from "../currency";
 import fetchFeed from "../actions/feed";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -26,8 +26,11 @@ type Props = {
 
 type State = {
   data: Array<Object>,
+  selected: string,
+  input: number,
   nominal: number,
-  handleChange: Function
+  btnDisable: boolean,
+  count: number
 };
 
 const styles = () => ({
@@ -53,7 +56,9 @@ class App extends React.Component<Props, State> {
       data: [],
       selected: "",
       input: 10,
-      nominal: numeral(10).format("0,0.00")
+      nominal: numeral(10).format("0,0.00"),
+      btnDisable: true,
+      count: 0
     };
   }
 
@@ -69,28 +74,51 @@ class App extends React.Component<Props, State> {
     this.props.fetchFeed();
   }
 
-  handleInputChange(value) {
+  handleInputChange(value: number) {
     this.setState({
       input: value,
       nominal: numeral(value).format("0,0.00")
     });
   }
 
-  handleSelectChange(value) {
+  handleSelectChange(value: string) {
     this.setState({
-      selected: value
+      selected: value,
+      btnDisable: value === ""
     });
   }
 
-  handleClickButton(e) {
-    e.preventDefault();
-    const { selected } = this.state;
-    console.log(selected);
+  handleClickButton() {
+    const { feed } = this.props;
+    const { data, selected, count } = this.state;
+    const newData = {
+      id: count,
+      name: selected,
+      detail: currency[selected],
+      rate: feed[selected]
+    };
+    this.setState({
+      data: [...data, newData],
+      selected: "",
+      btnDisable: true,
+      count: count + 1
+    });
+  }
+
+  handleRemoveCurrency(id: number) {
+    const { data, count } = this.state;
+    const arr = data.filter(el => {
+      return el.id !== id;
+    });
+    this.setState({
+      data: arr,
+      count: count - 1
+    });
   }
 
   render() {
     const { feed, date, isLoading, classes } = this.props;
-    const { data, selected, input, nominal } = this.state;
+    const { data, selected, input, nominal, btnDisable } = this.state;
 
     return (
       <div className={classes.deviceHeight}>
@@ -104,20 +132,24 @@ class App extends React.Component<Props, State> {
             <Grid item xs>
               <Paper className={classes.lightGreenPaper}>
                 {isLoading && <Loader />}
-                {data.map(item => (
+                {data.map((item, id) => (
                   <Currency
                     key={item.name}
-                    header={item.name}
-                    meta={item.description}
-                    description={item.description}
+                    id={id}
+                    name={item.name}
+                    detail={item.detail}
+                    rate={item.rate}
+                    value={input}
+                    removeCurrency={() => this.handleRemoveCurrency(id)}
                   />
                 ))}
               </Paper>
               <AddCurrency
                 data={feed}
                 selected={selected}
+                button={btnDisable}
                 onChange={e => this.handleSelectChange(e.target.value)}
-                onClick={e => this.handleClickButton(e)}
+                onClick={() => this.handleClickButton()}
               />
             </Grid>
           </Grid>

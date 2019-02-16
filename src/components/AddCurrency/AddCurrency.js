@@ -8,9 +8,12 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Paper from "@material-ui/core/Paper";
 import { withStyles } from "@material-ui/core/styles";
 
+import currency from "../../currency";
+
 type Props = {
   data: Array<Object>,
   selected: string,
+  button: boolean,
   onChange: Function,
   onClick: Function,
   classes: Object
@@ -43,7 +46,7 @@ const styles = theme => ({
 });
 
 const AddCurrency = (props: Props) => {
-  const { data, selected, onChange, onClick, classes } = props;
+  const { data, selected, button, onChange, onClick, classes } = props;
   return (
     <Paper className={classes.paper}>
       <FormControl className={classes.formControl}>
@@ -59,16 +62,19 @@ const AddCurrency = (props: Props) => {
           <MenuItem value="">
             <em>Add more currency</em>
           </MenuItem>
-          {Object.keys(data).map(item => (
-            <MenuItem key={item} value={item}>
-              {item}
-            </MenuItem>
-          ))}
+          {Object.keys(data)
+            .filter(item => Object.keys(currency).includes(item))
+            .map(item => (
+              <MenuItem key={item} value={item}>
+                {item}
+              </MenuItem>
+            ))}
         </Select>
       </FormControl>
       <Button
         variant="contained"
         color="primary"
+        disabled={button}
         className={classes.button}
         onClick={onClick}
       >
