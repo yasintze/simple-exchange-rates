@@ -9,13 +9,16 @@ type Props = {
 
 const Footer = (props: Props) => {
   const { date } = props;
-  const lastUpdatedInfo = `Last updated ${date} by Yasin`;
+  const lastUpdatedInfo = `Last updated ${date}`;
 
   return (
     <Grid container>
       <Grid item xs>
         <Typography align="center" variant="overline" gutterBottom>
-          {date && <p>{lastUpdatedInfo}</p>}
+          {date && <strong>{lastUpdatedInfo}</strong>}
+          <br />
+          {"by "}
+          <a href="https://github.com/yasintze/simple-exchange-rates">Yasin</a>
         </Typography>
       </Grid>
     </Grid>
