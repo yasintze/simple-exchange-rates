@@ -14,6 +14,12 @@ type Props = {
 
 class App extends React.Component<Props> {
   componentDidMount() {
+    const element = document.getElementById("initLoader");
+    window.onload = () => {
+      if (element) {
+        element.remove();
+      }
+    };
     this.props.fetchFeed();
   }
 
@@ -24,7 +30,7 @@ class App extends React.Component<Props> {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          {isLoading && "Loading"}
+          {isLoading && "Please wait.."}
           {feed && "Data loaded"}
           <p>
             Edit
