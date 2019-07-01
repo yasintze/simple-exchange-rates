@@ -18,7 +18,9 @@ const Footer = (props: Props) => {
           {date && <strong>{lastUpdatedInfo}</strong>}
           <br />
           {"by "}
-          <a href="https://github.com/yasintze/simple-exchange-rates">Yasin</a>
+          <a href="https://github.com/yasintze/simple-exchange-rates">
+            {"Yasin Junet"}
+          </a>
         </Typography>
       </Grid>
     </Grid>
