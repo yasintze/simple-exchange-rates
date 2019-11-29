@@ -5,10 +5,7 @@ const url = "/latest?base=USD";
 export const feed = {
   state: {
     result: [],
-    date: null,
-    isError: false,
-    isLoading: false,
-    hasFailed: false
+    date: null
   },
   reducers: {
     appendFeed(state, payload) {
@@ -21,24 +18,6 @@ export const feed = {
       return {
         ...state,
         date: payload
-      };
-    },
-    setError(state, payload) {
-      return {
-        ...state,
-        isError: payload
-      };
-    },
-    setLoading(state, payload) {
-      return {
-        ...state,
-        isLoading: payload
-      };
-    },
-    setHasFailed(state, payload) {
-      return {
-        ...state,
-        hasFailed: payload
       };
     }
   },

@@ -3,7 +3,12 @@ node_js:
   - "8.1.3"
 install:
   - npm install
+<<<<<<< HEAD
 before_script:
   - npm install -g netlify-cli
 script:
   - webpack
+=======
+script:
+  - npm run lh -- https://simple-exchange-rates.netlify.com/
+>>>>>>> c5bc669a3c827667cda82471718525f68753c58f

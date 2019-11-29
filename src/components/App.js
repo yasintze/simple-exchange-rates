@@ -19,7 +19,7 @@ type Props = {
   feed: Array<Object>,
   date: string,
   fetchFeedAsync: Function,
-  isLoading: boolean,
+  loading: boolean,
   classes: Object
 };
 
@@ -61,6 +61,7 @@ class App extends React.Component<Props, State> {
 
   componentDidMount() {
     const element = document.getElementById("initLoader");
+    const { fetchFeedAsync } = this.props;
     window.onload = () => {
       if (element) {
         element.remove();
@@ -68,7 +69,6 @@ class App extends React.Component<Props, State> {
     };
 
     // Fetch rates data
-    const { fetchFeedAsync } = this.props;
     fetchFeedAsync();
   }
 
@@ -126,7 +126,7 @@ class App extends React.Component<Props, State> {
   }
 
   render() {
-    const { feed, date, isLoading, classes } = this.props;
+    const { feed, date, loading, classes } = this.props;
     const { data, selected, input, btnDisable } = this.state;
 
     return (
@@ -141,7 +141,7 @@ class App extends React.Component<Props, State> {
           <Grid container>
             <Grid item xs>
               <Paper className={classes.lightGreenPaper}>
-                {isLoading && <Loader />}
+                {loading.modal && <Loader />}
                 {data.map((item, id) => (
                   <Currency
                     key={item.name}
@@ -174,7 +174,10 @@ function mapStateToProps(state) {
   return {
     feed: state.feed.result,
     date: state.feed.date,
-    isLoading: state.feed.isLoading
+    loading: {
+      global: state.loading.global,
+      model: state.loading.models.feed
+    }
   };
 }
 
