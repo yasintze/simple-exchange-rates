@@ -17,9 +17,9 @@ const Footer = (props: Props) => {
         <Typography align="center" variant="overline" gutterBottom>
           {date && <strong>{lastUpdatedInfo}</strong>}
           <br />
-          {"by "}
+          by
           <a href="https://github.com/yasintze/simple-exchange-rates">
-            {"Yasin Junet"}
+            Yasin Junet
           </a>
         </Typography>
       </Grid>

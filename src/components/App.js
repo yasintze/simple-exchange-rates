@@ -19,14 +19,6 @@ type Props = {
   classes: Object
 };
 
-// type State = {
-//   data: Array<Object>,
-//   selected: string,
-//   input: string,
-//   btnDisable: boolean,
-//   count: number
-// };
-
 const styles = () => ({
   deviceHeight: {
     minHeight: "100vh",
@@ -49,11 +41,11 @@ const App = (props: Props) => {
   const loading = useSelector(state => state.loading.models.feed);
   const dispatch = useDispatch();
 
-  const [data, setData] = useState([]);
-  const [selected, setSelected] = useState("");
-  const [input, setInput] = useState("10");
-  const [btnDisable, setBtnDisable] = useState(true);
-  const [count, setCount] = useState(0);
+  const [data, setData] = useState<Array<Object>>([]);
+  const [selected, setSelected] = useState<string>("");
+  const [input, setInput] = useState<string>("10");
+  const [btnDisable, setBtnDisable] = useState<boolean>(true);
+  const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
     const element = document.getElementById("initLoader");
@@ -67,20 +59,11 @@ const App = (props: Props) => {
     dispatch.feed.fetchFeedAsync();
   }, []);
 
-  const handleInputFocus = value => {
-    setInput(value);
-  };
-
   const handleInputBlur = value => {
     setInput(numeral(value).format("0,0.00"));
   };
 
-  const handleInputChange = value => {
-    setInput(value);
-  };
-
   const handleSelectChange = value => {
-    setSelected(value);
     setBtnDisable(value === "");
   };
 
@@ -93,7 +76,7 @@ const App = (props: Props) => {
     };
     setData([...data, newData]);
     setSelected("");
-    setBtnDisable(true);
+    setBtnDisable("true");
     setCount(count + 1);
   };
 
@@ -109,9 +92,9 @@ const App = (props: Props) => {
     <div className={classes.deviceHeight}>
       <Header
         input={input}
-        onFocus={e => handleInputFocus(e.target.value)}
+        onFocus={e => setInput(e.target.value)}
         onBlur={e => handleInputBlur(e.target.value)}
-        onChange={e => handleInputChange(e.target.value)}
+        onChange={e => setInput(e.target.value)}
       />
       <div className={classes.root}>
         <Grid container>

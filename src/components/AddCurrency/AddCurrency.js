@@ -78,7 +78,7 @@ const AddCurrency = (props: Props) => {
         className={classes.button}
         onClick={onClick}
       >
-        {"Add Currency"}
+        Add Currency
       </Button>
     </Paper>
   );
