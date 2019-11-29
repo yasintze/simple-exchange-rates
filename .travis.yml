@@ -1,2 +1,9 @@
-after_success:
-  - npm run lh -- https://simple-exchange-rates.netlify.com/
+language: node_js
+node_js:
+  - "8.1.3"
+install:
+  - npm install
+before_script:
+  - npm install -g netlify-cli
+script:
+  - webpack

@@ -7,7 +7,7 @@ import lightGreen from "@material-ui/core/colors/lightGreen";
 
 import "./index.css";
 import App from "./components/App";
-import configureStore from "./store";
+import store from "./store/index";
 import * as serviceWorker from "./serviceWorker";
 
 // Custom primary and secondary color.
@@ -26,8 +26,6 @@ const theme = createMuiTheme({
   }
 });
 
-const initialState = {};
-const store = configureStore(initialState);
 const rootElement = document.getElementById("root");
 
 const ReactApp = () => (

@@ -9,7 +9,6 @@ import { withStyles } from "@material-ui/core/styles";
 import numeral from "numeral";
 
 import currency from "../currency";
-import fetchFeed from "../actions/feed";
 import Header from "./Header";
 import Footer from "./Footer";
 import Loader from "./Loader";
@@ -19,7 +18,7 @@ import AddCurrency from "./AddCurrency";
 type Props = {
   feed: Array<Object>,
   date: string,
-  fetchFeed: Function,
+  fetchFeedAsync: Function,
   isLoading: boolean,
   classes: Object
 };
@@ -28,7 +27,6 @@ type State = {
   data: Array<Object>,
   selected: string,
   input: string,
-  nominal: number,
   btnDisable: boolean,
   count: number
 };
@@ -70,7 +68,8 @@ class App extends React.Component<Props, State> {
     };
 
     // Fetch rates data
-    this.props.fetchFeed();
+    const { fetchFeedAsync } = this.props;
+    fetchFeedAsync();
   }
 
   handleInputFocus(value: string) {
@@ -173,10 +172,15 @@ class App extends React.Component<Props, State> {
 
 function mapStateToProps(state) {
   return {
-    feed: state.feedReducer.feed,
-    date: state.feedReducer.date,
-    loading: state.feedReducer.loading,
-    error: state.feedReducer.error
+    feed: state.feed.result,
+    date: state.feed.date,
+    isLoading: state.feed.isLoading
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchFeedAsync: dispatch.feed.fetchFeedAsync
   };
 }
 
@@ -184,6 +188,6 @@ export default compose(
   withStyles(styles),
   connect(
     mapStateToProps,
-    { fetchFeed }
+    mapDispatchToProps
   )
 )(App);
