@@ -45,7 +45,7 @@ const App = (props: Props) => {
   const [selected, setSelected] = useState<string>("");
   const [input, setInput] = useState<string>("10");
   const [btnDisable, setBtnDisable] = useState<boolean>(true);
-  const [count, setCount] = useState<number>(1);
+  const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
     const element = document.getElementById("initLoader");
@@ -70,7 +70,6 @@ const App = (props: Props) => {
 
   const handleClickButton = () => {
     const newData = {
-      id: count,
       name: selected,
       detail: currency[selected],
       rate: feed[selected]
@@ -81,9 +80,9 @@ const App = (props: Props) => {
     setCount(count + 1);
   };
 
-  const handleRemoveCurrency = id => {
+  const handleRemoveCurrency = name => {
     const arr = data.filter(el => {
-      return el.id !== id;
+      return el.name !== name;
     });
     setData(arr);
     setCount(count - 1);
@@ -110,7 +109,7 @@ const App = (props: Props) => {
                   detail={item.detail}
                   rate={item.rate}
                   value={input}
-                  removeCurrency={() => handleRemoveCurrency(id)}
+                  removeCurrency={() => handleRemoveCurrency(item.name)}
                 />
               ))}
             </Paper>
