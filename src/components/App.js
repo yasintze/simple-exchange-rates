@@ -45,7 +45,7 @@ const App = (props: Props) => {
   const [selected, setSelected] = useState<string>("");
   const [input, setInput] = useState<string>("10");
   const [btnDisable, setBtnDisable] = useState<boolean>(true);
-  const [count, setCount] = useState<number>(0);
+  const [count, setCount] = useState<number>(1);
 
   useEffect(() => {
     const element = document.getElementById("initLoader");
@@ -64,6 +64,7 @@ const App = (props: Props) => {
   };
 
   const handleSelectChange = value => {
+    setSelected(value);
     setBtnDisable(value === "");
   };
 
@@ -76,7 +77,7 @@ const App = (props: Props) => {
     };
     setData([...data, newData]);
     setSelected("");
-    setBtnDisable("true");
+    setBtnDisable(true);
     setCount(count + 1);
   };
 

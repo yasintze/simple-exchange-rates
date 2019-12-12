@@ -3,7 +3,7 @@
 exports[`App component should render correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <WithStyles(Connect(App)) />,
+  Symbol(enzyme.__unrendered__): <WithStyles(App) />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],
@@ -16,12 +16,12 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "class",
+    "nodeType": "function",
     "props": Object {
       "classes": Object {
-        "deviceHeight": "Connect-App--deviceHeight-1",
-        "lightGreenPaper": "Connect-App--lightGreenPaper-3",
-        "root": "Connect-App--root-2",
+        "deviceHeight": "App-deviceHeight-1",
+        "lightGreenPaper": "App-lightGreenPaper-3",
+        "root": "App-root-2",
       },
     },
     "ref": null,
@@ -32,12 +32,12 @@ ShallowWrapper {
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
+      "nodeType": "function",
       "props": Object {
         "classes": Object {
-          "deviceHeight": "Connect-App--deviceHeight-1",
-          "lightGreenPaper": "Connect-App--lightGreenPaper-3",
-          "root": "Connect-App--root-2",
+          "deviceHeight": "App-deviceHeight-1",
+          "lightGreenPaper": "App-lightGreenPaper-3",
+          "root": "App-root-2",
         },
       },
       "ref": null,
@@ -57,7 +57,10 @@ ShallowWrapper {
           "getChildContext": Object {
             "calledByRenderer": false,
           },
-          "getDerivedStateFromProps": true,
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
           "getSnapshotBeforeUpdate": true,
           "setState": Object {
             "skipsComponentDidUpdateOnNullish": true,
@@ -65,6 +68,9 @@ ShallowWrapper {
         },
       },
     },
+    Symbol(enzyme.__providerValues__): undefined,
   },
+  Symbol(enzyme.__providerValues__): Map {},
+  Symbol(enzyme.__childContext__): null,
 }
 `;

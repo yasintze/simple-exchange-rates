@@ -28,11 +28,11 @@ ShallowWrapper {
           variant="overline"
         >
           <br />
-          by 
+          by
           <a
             href="https://github.com/yasintze/simple-exchange-rates"
           >
-            Yasin
+            Yasin Junet
           </a>
         </WithStyles(Typography)>
       </WithStyles(Grid)>,
@@ -50,11 +50,11 @@ ShallowWrapper {
           variant="overline"
         >
           <br />
-          by 
+          by
           <a
             href="https://github.com/yasintze/simple-exchange-rates"
           >
-            Yasin
+            Yasin Junet
           </a>
         </WithStyles(Typography)>,
         "item": true,
@@ -70,11 +70,11 @@ ShallowWrapper {
           "children": Array [
             undefined,
             <br />,
-            "by ",
+            "by",
             <a
               href="https://github.com/yasintze/simple-exchange-rates"
             >
-              Yasin
+              Yasin Junet
             </a>,
           ],
           "gutterBottom": true,
@@ -92,17 +92,17 @@ ShallowWrapper {
             "rendered": null,
             "type": "br",
           },
-          "by ",
+          "by",
           Object {
             "instance": null,
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Yasin",
+              "children": "Yasin Junet",
               "href": "https://github.com/yasintze/simple-exchange-rates",
             },
             "ref": null,
-            "rendered": "Yasin",
+            "rendered": "Yasin Junet",
             "type": "a",
           },
         ],
@@ -128,11 +128,11 @@ ShallowWrapper {
             variant="overline"
           >
             <br />
-            by 
+            by
             <a
               href="https://github.com/yasintze/simple-exchange-rates"
             >
-              Yasin
+              Yasin Junet
             </a>
           </WithStyles(Typography)>
         </WithStyles(Grid)>,
@@ -150,11 +150,11 @@ ShallowWrapper {
             variant="overline"
           >
             <br />
-            by 
+            by
             <a
               href="https://github.com/yasintze/simple-exchange-rates"
             >
-              Yasin
+              Yasin Junet
             </a>
           </WithStyles(Typography)>,
           "item": true,
@@ -170,11 +170,11 @@ ShallowWrapper {
             "children": Array [
               undefined,
               <br />,
-              "by ",
+              "by",
               <a
                 href="https://github.com/yasintze/simple-exchange-rates"
               >
-                Yasin
+                Yasin Junet
               </a>,
             ],
             "gutterBottom": true,
@@ -192,17 +192,17 @@ ShallowWrapper {
               "rendered": null,
               "type": "br",
             },
-            "by ",
+            "by",
             Object {
               "instance": null,
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Yasin",
+                "children": "Yasin Junet",
                 "href": "https://github.com/yasintze/simple-exchange-rates",
               },
               "ref": null,
-              "rendered": "Yasin",
+              "rendered": "Yasin Junet",
               "type": "a",
             },
           ],
@@ -225,7 +225,10 @@ ShallowWrapper {
           "getChildContext": Object {
             "calledByRenderer": false,
           },
-          "getDerivedStateFromProps": true,
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
           "getSnapshotBeforeUpdate": true,
           "setState": Object {
             "skipsComponentDidUpdateOnNullish": true,
@@ -233,243 +236,8 @@ ShallowWrapper {
         },
       },
     },
+    Symbol(enzyme.__providerValues__): undefined,
   },
-}
-`;
-
-exports[`Footer component should render correctly 1`] = `
-ShallowWrapper {
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Footer />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "checkPropTypes": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "class",
-    "props": Object {
-      "children": <WithStyles(Grid)
-        item={true}
-        xs={true}
-      >
-        <WithStyles(Typography)
-          align="center"
-          gutterBottom={true}
-          variant="overline"
-        >
-          <br />
-          by 
-          <a
-            href="https://github.com/yasintze/simple-exchange-rates"
-          >
-            Yasin
-          </a>
-        </WithStyles(Typography)>
-      </WithStyles(Grid)>,
-      "container": true,
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "children": <WithStyles(Typography)
-          align="center"
-          gutterBottom={true}
-          variant="overline"
-        >
-          <br />
-          by 
-          <a
-            href="https://github.com/yasintze/simple-exchange-rates"
-          >
-            Yasin
-          </a>
-        </WithStyles(Typography)>,
-        "item": true,
-        "xs": true,
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "align": "center",
-          "children": Array [
-            undefined,
-            <br />,
-            "by ",
-            <a
-              href="https://github.com/yasintze/simple-exchange-rates"
-            >
-              Yasin
-            </a>,
-          ],
-          "gutterBottom": true,
-          "variant": "overline",
-        },
-        "ref": null,
-        "rendered": Array [
-          undefined,
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {},
-            "ref": null,
-            "rendered": null,
-            "type": "br",
-          },
-          "by ",
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Yasin",
-              "href": "https://github.com/yasintze/simple-exchange-rates",
-            },
-            "ref": null,
-            "rendered": "Yasin",
-            "type": "a",
-          },
-        ],
-        "type": [Function],
-      },
-      "type": [Function],
-    },
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "children": <WithStyles(Grid)
-          item={true}
-          xs={true}
-        >
-          <WithStyles(Typography)
-            align="center"
-            gutterBottom={true}
-            variant="overline"
-          >
-            <br />
-            by 
-            <a
-              href="https://github.com/yasintze/simple-exchange-rates"
-            >
-              Yasin
-            </a>
-          </WithStyles(Typography)>
-        </WithStyles(Grid)>,
-        "container": true,
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "children": <WithStyles(Typography)
-            align="center"
-            gutterBottom={true}
-            variant="overline"
-          >
-            <br />
-            by 
-            <a
-              href="https://github.com/yasintze/simple-exchange-rates"
-            >
-              Yasin
-            </a>
-          </WithStyles(Typography)>,
-          "item": true,
-          "xs": true,
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "align": "center",
-            "children": Array [
-              undefined,
-              <br />,
-              "by ",
-              <a
-                href="https://github.com/yasintze/simple-exchange-rates"
-              >
-                Yasin
-              </a>,
-            ],
-            "gutterBottom": true,
-            "variant": "overline",
-          },
-          "ref": null,
-          "rendered": Array [
-            undefined,
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {},
-              "ref": null,
-              "rendered": null,
-              "type": "br",
-            },
-            "by ",
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Yasin",
-                "href": "https://github.com/yasintze/simple-exchange-rates",
-              },
-              "ref": null,
-              "rendered": "Yasin",
-              "type": "a",
-            },
-          ],
-          "type": [Function],
-        },
-        "type": [Function],
-      },
-      "type": [Function],
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-        "legacyContextMode": "parent",
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "onSetState": true,
-          },
-          "getChildContext": Object {
-            "calledByRenderer": false,
-          },
-          "getDerivedStateFromProps": true,
-          "getSnapshotBeforeUpdate": true,
-          "setState": Object {
-            "skipsComponentDidUpdateOnNullish": true,
-          },
-        },
-      },
-    },
-  },
+  Symbol(enzyme.__providerValues__): Map {},
 }
 `;
