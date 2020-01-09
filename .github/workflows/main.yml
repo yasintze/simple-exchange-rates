@@ -13,7 +13,7 @@ jobs:
       with:
         accessToken: ${{ secrets.LIGHTHOUSE_CHECK_GITHUB_ACCESS_TOKEN }},  
         outputDirectory: /tmp/artifacts
-        urls: 'https://www.foo.software,https://www.foo.software/contact'
+        urls: 'https://simple-exchange-rates.netlify.com/'
     - name: Upload artifacts
       uses: actions/upload-artifact@master
       with:
