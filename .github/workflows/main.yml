@@ -11,7 +11,7 @@ jobs:
     - name: Run Lighthouse
       uses: foo-software/lighthouse-check-action@master
       with:
-        accessToken: ${{ secrets.LIGHTHOUSE_CHECK_GITHUB_ACCESS_TOKEN }},  
+        accessToken: ${{ secrets.LIGHTHOUSE_CHECK_GITHUB_ACCESS_TOKEN }}  
         outputDirectory: /tmp/artifacts
         urls: 'https://simple-exchange-rates.netlify.com/'
     - name: Upload artifacts
